@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	int P,T,G1,G2,G3,Gj;
+	float grade;
+	while(scanf("%d %d %d %d %d %d",&P,&T,&G1,&G2,&G3,&Gj) != EOF)
+	{
+		if (abs(G1-G2)<=T)
+			grade=((float)(G1+G2))/2;
+		else
+			if ((abs(G3-G1)<=T)&&(abs(G3-G2)>T))
+				grade=((float)(G1+G3))/2;
+			else 
+				if ((abs(G3-G2)<=T)&&(abs(G3-G1)>T))
+					grade=((float)(G3+G2))/2;
+				else
+					if ((abs(G3-G1)<=T)&&(abs(G3-G2)<=T))
+						grade=G3>G1?(G3>G2?G3:G2):(G1>G2?G1:G2);
+					else
+						grade=Gj;
+printf("%0.1f\n",grade);
+	}
+	
+	return 0;
+}

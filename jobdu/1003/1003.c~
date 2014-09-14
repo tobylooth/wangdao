@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char stra[13],strb[13];
+	while(scanf("%s %s",stra,strb))
+	{
+		int A=0,B=0,m=1;
+		int lena=strlen(stra),lenb=strlen(strb);
+		char *pa,*pb;
+		pa=stra;
+		pb=strb+lenb;
+		printf("%d#",(int)(*pa));
+		for(int i=0;i<lena;i++,pa--)
+		{
+			m=m*10;
+			if(*pa==',')
+			   m=m/10;
+			else if(*pa=='-')
+			        A=-A;
+				else 
+				{
+				A=A+(int)(*pa)*m;
+				printf("\n %d[]\n",(int)(*pa));
+				}
+		}
+		for(int i=0;i<lena;i++,pa++)
+		printf("%c,",*pa);
+		printf("%d---%d",lena,A);
+	}
+	printf("%s///%s\n",stra,strb);
+	return 0;
+}
