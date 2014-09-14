@@ -1,0 +1,60 @@
+#include"postfix.h"
+void postfix_cal(char exp[],int *res)
+{
+    blank_del(exp);
+    oper.top=0;
+    oper.oper[oper.top++]='#';
+    num_op.top=0;
+    char *p,numbuf[11];
+    memset(numbuf,0,sizeof(numbuf));
+    int numbufcnt=0,chflag=0;
+    p=exp;
+    while(*p!='\0')
+    {
+        if(*p>'9'||*p<'0')
+        {
+            if(*p=='-')
+                if(p==exp||*(p-1)=='(')
+                    numbuf[numbufcnt++]='0';
+            if(numbufcnt>0)
+            {
+                numbuf[numbufcnt]='\0';
+                push_num(stoi_my(numbuf));
+                numbufcnt=0;
+                chflag=0;
+                memset(numbuf,0,sizeof(numbuf));
+            }
+            while(priority_my(*p,oper.oper[oper.top-1])==0)
+            {
+                if(oper.oper[oper.top-1]=='(')
+                    break;
+                handle_cal();
+            }
+            if(*p==')')
+            {
+                pop_oper();
+                p++;
+                continue;
+            }
+            else
+                push_oper(*p);
+        }
+        else
+        {
+            numbuf[numbufcnt++]=*p++;
+            continue;
+        }
+        p++;
+    }
+            if(numbufcnt>0)
+            {
+                numbuf[numbufcnt]='\0';
+                push_num(stoi_my(numbuf));
+            }
+
+    while(oper.oper[oper.top-1]!='#')
+    {
+        handle_cal();
+    }
+    *res=pop_num();
+}
