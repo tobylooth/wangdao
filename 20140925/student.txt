@@ -1,0 +1,4 @@
+011 zhangsan 80
+003 lisi 342
+004 laowang 34
+006 xueba 1000

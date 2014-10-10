@@ -1,0 +1,17 @@
+1.what is  your name?
+A.xueba
+B.xuezha
+C.buzhidao
+D.niubi
+
+2.what the color of your pen?
+A.blue
+B.green
+C.black
+D.unknown
+
+3.1+1=?
+A.1
+B.2
+C.3
+D.overflow

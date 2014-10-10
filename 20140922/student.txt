@@ -1,0 +1,5 @@
+001 zhangsan 70
+002 lisi 89
+003 gousheng 90
+004 xuezha 60
+005 xueba 100
